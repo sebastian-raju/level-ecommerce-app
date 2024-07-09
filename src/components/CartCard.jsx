@@ -7,20 +7,27 @@ function CartCard({cartProduct}) {
 
   // const { name, price, image} = cartProduct;
   // console.log(cartProduct);
-  const [qty, setQty] = useState(cartProduct?.qty);
+  const [qty, setQty] = useState("");
   const [noStock, setNoStock] = useState(false);
   const dispatch = useDispatch();
 
   const changeQuantity = (val) => {
     if(val === 'dec'){
       if(qty > 1) {
-        setQty(prev => prev - 1);
+        // setQty(prev => prev - 1);
+        
+        // console.log('decrement', (qty - 1),"-",(cartProduct?.qty));
+        // dispatch(addToCart({...cartProduct, qty: (qty-1) - cartProduct?.qty }));
+        dispatch(addToCart({...cartProduct, qty:-1}));
         setNoStock(false);
       }
     }
     else if(val === 'inc'){
       if((cartProduct?.countInStock - qty) >= 1){
-        setQty(prev => prev + 1);
+        // setQty(prev => prev + 1);
+        // console.log('increment', (cartProduct?.qty),"-",(qty - 1));
+        // dispatch(addToCart({...cartProduct, qty: cartProduct?.qty - (qty -1 )}));
+        dispatch(addToCart({...cartProduct, qty: 1}));
         setNoStock(false);
       }
       else{
@@ -33,9 +40,13 @@ function CartCard({cartProduct}) {
     dispatch(removeFromCart(id));
   }
 
+  // useEffect(()=>{
+  //   dispatch(addToCart({...cartProduct, qty}));
+  // },[qty])
+
   useEffect(()=>{
-    dispatch(addToCart({...cartProduct, qty}));
-  },[qty])
+    setQty(cartProduct?.qty);
+  },[cartProduct])
 
 
   return (
