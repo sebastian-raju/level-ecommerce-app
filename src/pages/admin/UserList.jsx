@@ -53,8 +53,8 @@ function UserList() {
             <div className='col-span-2 ps-2 flex justify-center'>edit delete</div>
           </div>
   
-          {users.map((user)=>(<div className='grid grid-cols-12 gap-2 blg:gap-3 mt-[30px] blg:mt-[0px] ring-1 ring-gray-200 blg:ring-slate-950/5 py-[14px] px-3 text-[16px] blg:text-[14px] rounded-lg blg:py-[40px] '>
-          <div className='col-span-12 blg:col-span-3 ps-2 flex justify-center blg:justify-start h-[100%] items-center'>{user._id}</div>
+          {users.map((user , index)=>(<div className='grid grid-cols-12 gap-2 blg:gap-3 mt-[30px] blg:mt-[0px] ring-1 ring-gray-200 blg:ring-slate-950/5 py-[14px] px-3 text-[16px] blg:text-[14px] rounded-lg blg:py-[40px] '>
+          <div className='col-span-12 blg:col-span-3 ps-2 flex justify-center blg:justify-start h-[100%] items-center'>{index + 1}</div>
           <hr className='col-span-12 block w-[100%] blg:hidden my-1'/>
             <div className='col-span-12 blg:col-span-3 ps-2 flex font-semibold blg:font-normal justify-start h-[100%] items-center'>{user?.name}</div>
             <div className='col-span-12 blg:col-span-2 ps-2  flex justify-start h-[100%] items-center '>{user?.email}</div>

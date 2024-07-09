@@ -74,8 +74,8 @@ function ProductList() {
             <div className='col-span-2 ps-2 flex justify-center'>edit delete</div>
           </div>
   
-          {products?.map((product)=>(<div className='grid grid-cols-12 gap-2 md:gap-3 mt-[30px] md:mt-[0px] ring-1 ring-gray-200 md:ring-slate-950/5 py-[14px] px-3 text-[16px] md:text-[12px] mxd:text-[14px] rounded-lg md:py-[8px] '>
-          <div className='col-span-12 md:col-span-3 ps-2 flex justify-center md:justify-start h-[100%] items-center'>{product?._id}</div>
+          {products?.map((product, index)=>(<div className='grid grid-cols-12 gap-2 md:gap-3 mt-[30px] md:mt-[0px] ring-1 ring-gray-200 md:ring-slate-950/5 py-[14px] px-3 text-[16px] md:text-[12px] mxd:text-[14px] rounded-lg md:py-[8px] '>
+          <div className='col-span-12 md:col-span-3 ps-2 flex justify-center md:justify-start h-[100%] items-center'>{index + 1}</div>
           <hr className='col-span-12 block w-[100%] md:hidden my-1'/>
             <div className='col-span-12 md:col-span-1 ps-2 w-[100%] md:w-[65px] h-[250px] md:h-[100px] flex justify-start'>
               <img src={`${BASE_URL}${product?.image}`} className='w-[100%] h-[250px] md:h-[100px] object-contain' alt="" />
